@@ -8,44 +8,80 @@ import { MousePointer2 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function DiagnosticShuffler() {
-  const [cards, setCards] = useState([
-    { id: 1, label: 'Conversion Rate: 3.2% → 7.8%', color: 'from-amber-400/20 to-amber-600/20' },
-    { id: 2, label: 'Bounce Rate: 72% → 41%', color: 'from-blue-400/20 to-blue-600/20' },
-    { id: 3, label: 'LTV Score: $120 → $340', color: 'from-emerald-400/20 to-emerald-600/20' },
-  ]);
+function ContentPulse() {
+  const [pieces, setPieces] = useState(0);
+  const items = [
+    { label: 'Blog Post', color: 'bg-plasma-purple/20 text-plasma-light' },
+    { label: 'Meta Ad', color: 'bg-blue-500/20 text-blue-200' },
+    { label: 'SEO Article', color: 'bg-emerald-500/20 text-emerald-200' },
+    { label: 'GEO Answer', color: 'bg-plasma-purple/20 text-plasma-light' },
+    { label: 'TikTok Script', color: 'bg-blue-500/20 text-blue-200' },
+    { label: 'Email Sequence', color: 'bg-emerald-500/20 text-emerald-200' },
+  ];
+
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Counter animation
+    const target = 24;
+    const duration = 2000;
+    const start = Date.now();
+    
+    const animateCounter = () => {
+      const now = Date.now();
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(progress * target);
+      setPieces(current);
+      if (progress < 1) requestAnimationFrame(animateCounter);
+    };
+    
+    animateCounter();
+
     if (isReducedMotion) return;
 
-    const interval = setInterval(() => {
-      setCards(prev => {
-        const newArr = [...prev];
-        const last = newArr.pop()!;
-        newArr.unshift(last);
-        return newArr;
-      });
-    }, 3000);
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.content-pill', 
+        { scale: 0.8, opacity: 0, y: 10 },
+        { 
+          scale: 1, 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.5, 
+          stagger: 0.2, 
+          ease: 'back.out(1.7)',
+          repeat: -1,
+          repeatDelay: 1
+        }
+      );
+    }, containerRef);
 
-    return () => clearInterval(interval);
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div className="relative h-44 w-full flex items-center justify-center pt-8">
-      {cards.map((card, i) => (
-        <div 
-          key={card.id}
-          className={`absolute flex items-center justify-center p-4 rounded-xl border border-white/10 bg-gradient-to-br ${card.color} backdrop-blur-md shadow-xl transition-all duration-700 w-[240px] z-${30 - i * 10}`}
-          style={{
-            transform: `translateY(${i * 12}px) scale(${1 - i * 0.05})`,
-            opacity: 1 - i * 0.2,
-            transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-          }}
-        >
-          <span className="font-mono text-sm font-bold text-ghost-white">{card.label}</span>
+    <div ref={containerRef} className="w-full bg-white/5 rounded-xl border border-white/5 p-5 min-h[140px] shadow-inner relative overflow-hidden">
+      <div className="flex justify-between items-center mb-6 border-b border-white/5 pb-2">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-plasma-purple animate-pulse" />
+          <span className="text-ash uppercase tracking-wider text-[10px] font-bold">Content Engine</span>
         </div>
-      ))}
+        <div className="font-mono text-[11px] text-plasma-light">
+          <span className="text-ghost-white font-bold">{pieces}</span> pieces this week
+        </div>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {items.map((item, idx) => (
+          <div 
+            key={idx} 
+            className={`content-pill px-3 py-1.5 rounded-full border border-white/10 text-[11px] font-body ${item.color}`}
+          >
+            {item.label}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -193,9 +229,11 @@ export default function Features() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
            <div className="cards-glow left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
-          {/* Card 1 */}
+          {/* Card 1 - AI Automation */}
           <div className="feature-card xtract-card flex flex-col items-center">
-            <DiagnosticShuffler />
+            <div className="w-full h-44 flex items-center justify-center">
+              <TelemetryTypewriter />
+            </div>
             <div className="mt-12 text-center">
               <h3 className="text-[22px] text-ghost-white mb-4">
                 {t.services.s1.title}
@@ -206,10 +244,10 @@ export default function Features() {
             </div>
           </div>
 
-          {/* Card 2 */}
+          {/* Card 2 - Growth Marketing */}
           <div className="feature-card xtract-card flex flex-col items-center">
             <div className="w-full h-44 flex items-center justify-center">
-              <TelemetryTypewriter />
+              <ContentPulse />
             </div>
             <div className="mt-12 text-center">
               <h3 className="text-[22px] text-ghost-white mb-4">
@@ -221,7 +259,7 @@ export default function Features() {
             </div>
           </div>
 
-          {/* Card 3 */}
+          {/* Card 3 - Product & Dev */}
           <div className="feature-card xtract-card flex flex-col items-center">
             <div className="w-full h-44 flex items-center justify-center">
                <CursorProtocol />

@@ -27,16 +27,16 @@ export const translations = {
       title: 'What We Do',
       sub: "We don't sell marketing hype. We deliver measurable growth through science.",
       s1: {
-        title: 'Performance & Metrics Setup',
-        desc: "We install, configure, and track the metrics that actually drive your business. If you can't measure it, you can't improve it."
+        title: 'AI Automation',
+        desc: "We design intelligent workflows that eliminate repetitive tasks, qualify leads automatically via WhatsApp and voice bots, and save your team 30+ hours per month — all connected to your existing tools."
       },
       s2: {
-        title: 'AI Automation',
-        desc: 'WhatsApp chatbots, voice assistants, AI-generated content with performance tracking. Automate what drains your time.'
+        title: 'Growth Marketing',
+        desc: "AI-powered content creation, SEO, SEM, and GEO strategies that put your brand in front of the right audience — and in front of AI search engines like ChatGPT and Perplexity."
       },
       s3: {
-        title: 'Growth Plans & Strategy',
-        desc: 'Detailed, scientific growth plans with KPIs, milestones, and continuous optimization based on real performance data.'
+        title: 'Product & Dev',
+        desc: "UX audits, conversion optimization, and custom software — CRMs, landing pages, dashboards — built with real metrics, not assumptions. Every pixel backed by data."
       }
     },
     philosophy: {
@@ -125,16 +125,16 @@ export const translations = {
       title: 'Qué Hacemos',
       sub: 'No vendemos humo de marketing. Entregamos crecimiento medible a través de ciencia.',
       s1: {
-        title: 'Métricas & Performance',
-        desc: 'Instalamos, configuramos y hacemos seguimiento de las métricas que realmente mueven tu negocio. Si no lo puedes medir, no lo puedes mejorar.'
+        title: 'Automatización con IA',
+        desc: 'Diseñamos flujos inteligentes que eliminan tareas repetitivas, califican leads automáticamente por WhatsApp y voz, y le ahorran a tu equipo 30+ horas al mes — conectado a tus herramientas actuales.'
       },
       s2: {
-        title: 'Automatización con IA',
-        desc: 'Chatbots de WhatsApp, asistentes de voz, contenido generado por IA con tracking de performance. Automatiza lo que te quita tiempo.'
+        title: 'Marketing de Crecimiento',
+        desc: 'Creación de contenido con IA, SEO, SEM y GEO que ponen tu marca frente a la audiencia correcta — y frente a motores de búsqueda de IA como ChatGPT y Perplexity.'
       },
       s3: {
-        title: 'Planes de Crecimiento',
-        desc: 'Planes de crecimiento científicos y detallados con KPIs, hitos y optimización continua basada en datos reales de performance.'
+        title: 'Producto y Desarrollo',
+        desc: 'Auditorías UX, optimización de conversión y software a medida — CRMs, landing pages, dashboards — construidos con métricas reales, no suposiciones. Cada pixel respaldado por datos.'
       }
     },
     philosophy: {
