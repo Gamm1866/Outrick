@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ScoreForm() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -18,19 +18,19 @@ export default function ScoreForm() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo('.form-element', 
-        { y: 30, opacity: 0 },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.8, 
-          stagger: 0.1, 
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-          }
+      { y: 30, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.8, 
+        stagger: 0.1, 
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
         }
-      );
+      }
+    );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -44,11 +44,22 @@ export default function ScoreForm() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL || 'https://example.com';
-      const response = await fetch(webhookUrl, {
+      const response = await fetch('https://formsubmit.co/ajax/sales@outrick.net', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          business: data.business,
+          challenge: data.challenge,
+          lang: language,
+          _subject: 'New Outrick Lead: ' + data.name,
+          _template: 'table'
+        }),
       });
 
       if (response.ok) {
