@@ -5,7 +5,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 export default function WhatsAppButton() {
   const { t } = useLanguage();
   
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '1234567890';
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '19045904962';
   const rawMsg = t.whatsapp.msg;
   const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(rawMsg)}`;
 
