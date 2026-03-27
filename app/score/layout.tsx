@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import Navbar from '@/components/Navbar'
+import CallButton from '@/components/score/CallButton'
 
 export const metadata: Metadata = {
   title: 'Score Digital Gratuito | Outrick',
@@ -23,5 +25,11 @@ export const metadata: Metadata = {
 }
 
 export default function ScoreLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return (
+    <>
+      <Navbar />
+      {children}
+      <CallButton />
+    </>
+  )
 }

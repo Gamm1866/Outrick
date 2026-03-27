@@ -55,7 +55,7 @@ export default function Navbar() {
             <span className="absolute left-0 bottom-0 top-[120%] w-0 h-[2px] bg-plasma-purple transition-all duration-300 group-hover:w-full"></span>
           </a>
           <LanguageToggle />
-          <a href="#contact" className="magnetic-btn btn-pill-primary px-6 py-2.5 text-[15px] inline-block">
+          <a href="/score" className="magnetic-btn btn-pill-primary px-6 py-2.5 text-[15px] inline-block">
             {t.nav.contact}
           </a>
         </nav>
@@ -83,7 +83,7 @@ export default function Navbar() {
           <a onClick={() => setMenuOpen(false)} href="#services" className="text-xl text-ghost-white">{t.nav.services}</a>
           <a onClick={() => setMenuOpen(false)} href="#process" className="text-xl text-ghost-white">{t.nav.process}</a>
           <LanguageToggle />
-          <a onClick={() => setMenuOpen(false)} href="#contact" className="btn-pill-primary px-6 py-3 text-center">
+          <a onClick={() => setMenuOpen(false)} href="/score" className="btn-pill-primary px-6 py-3 text-center">
             {t.nav.contact}
           </a>
         </div>
