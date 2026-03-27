@@ -203,7 +203,7 @@ export default function ScorePage() {
 
     // Submit to n8n webhook — configure N8N_URL in your environment
     if (userData) {
-      fetch('https://YOUR_N8N_INSTANCE/webhook/score-outrick', {
+      fetch('https://outrick1866.app.n8n.cloud/webhook/score-outrick', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
