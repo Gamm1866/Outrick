@@ -31,7 +31,6 @@ export interface Category {
 
 interface QuizScreenProps {
   lang: 'es' | 'en'
-  onLangToggle: () => void
   questions: Question[]
   categories: Category[]
   onComplete: (answers: Answer[]) => void
@@ -45,7 +44,6 @@ const slideVariants = {
 
 export default function QuizScreen({
   lang,
-  onLangToggle,
   questions,
   categories,
   onComplete,
@@ -102,24 +100,8 @@ export default function QuizScreen({
         }}
       />
 
-      {/* Lang toggle */}
-      <div className="absolute top-6 right-6 z-10">
-        <button
-          onClick={onLangToggle}
-          className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-all duration-300"
-          style={{
-            background: 'rgba(123, 97, 255, 0.1)',
-            border: '1px solid rgba(123, 97, 255, 0.3)',
-          }}
-        >
-          <span style={{ color: lang === 'es' ? '#7B61FF' : '#4A4F62' }}>ES</span>
-          <span style={{ color: '#2a2a4a' }}>|</span>
-          <span style={{ color: lang === 'en' ? '#7B61FF' : '#4A4F62' }}>EN</span>
-        </button>
-      </div>
-
       {/* Progress */}
-      <div className="pt-2 pb-6 pr-20">
+      <div className="pt-2 pb-6">
         <ProgressBar current={currentIndex} total={questions.length} lang={lang} />
       </div>
 

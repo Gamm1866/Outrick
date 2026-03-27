@@ -8,6 +8,7 @@ import SocialProof from '@/components/SocialProof';
 import ScoreForm from '@/components/ScoreForm';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import PhoneButton from '@/components/PhoneButton';
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
       <div className="section-divider" />
       <ScoreForm />
       <Footer />
+      <PhoneButton />
       <WhatsAppButton />
     </main>
   );

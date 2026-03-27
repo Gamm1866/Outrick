@@ -11,7 +11,6 @@ export interface UserData {
 
 interface IntroScreenProps {
   lang: 'es' | 'en'
-  onLangToggle: () => void
   onSubmit: (userData: UserData) => void
 }
 
@@ -49,7 +48,7 @@ const item = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const } },
 }
 
-export default function IntroScreen({ lang, onLangToggle, onSubmit }: IntroScreenProps) {
+export default function IntroScreen({ lang, onSubmit }: IntroScreenProps) {
   const [form, setForm] = useState<UserData>({ name: '', email: '', whatsapp: '' })
   const [errors, setErrors] = useState<Partial<Record<keyof UserData, boolean>>>({})
   const tx = copy[lang]
@@ -88,56 +87,13 @@ export default function IntroScreen({ lang, onLangToggle, onSubmit }: IntroScree
         style={{ background: 'rgba(123, 97, 255, 0.18)', filter: 'blur(100px)' }}
       />
 
-      {/* Lang toggle */}
-      <div className="absolute top-6 right-6 z-10">
-        <button
-          onClick={onLangToggle}
-          className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-all duration-300"
-          style={{
-            background: 'rgba(123, 97, 255, 0.1)',
-            border: '1px solid rgba(123, 97, 255, 0.3)',
-          }}
-        >
-          <span style={{ color: lang === 'es' ? '#7B61FF' : '#4A4F62' }}>ES</span>
-          <span style={{ color: '#2a2a4a' }}>|</span>
-          <span style={{ color: lang === 'en' ? '#7B61FF' : '#4A4F62' }}>EN</span>
-        </button>
-      </div>
-
+      {/* mt-10 pushes content down 40px from the vertically centered position */}
       <motion.div
-        className="w-full max-w-sm relative z-10"
+        className="w-full max-w-sm relative z-10 mt-10"
         variants={container}
         initial="hidden"
         animate="visible"
       >
-        {/* Logo */}
-        <motion.div variants={item} className="flex flex-col items-center mb-10">
-          <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold mb-3"
-            style={{
-              background: 'rgba(123, 97, 255, 0.08)',
-              border: '1px solid rgba(123, 97, 255, 0.35)',
-              color: '#7B61FF',
-              boxShadow: '0 0 24px rgba(123, 97, 255, 0.25), inset 0 1px 0 rgba(255,255,255,0.05)',
-              fontFamily: 'var(--font-body)',
-            }}
-          >
-            O
-          </div>
-          <span
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontWeight: 700,
-              letterSpacing: '5px',
-              fontSize: '11px',
-              color: '#F0F0F5',
-              textTransform: 'uppercase' as const,
-            }}
-          >
-            OUTRICK
-          </span>
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           variants={item}
@@ -217,7 +173,6 @@ export default function IntroScreen({ lang, onLangToggle, onSubmit }: IntroScree
                 fontSize: '15px',
               }}
             >
-              {/* Shimmer */}
               <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
               <span className="relative">{tx.cta}</span>
             </button>

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '@/hooks/useLanguage'
 import IntroScreen, { type UserData } from '@/components/score/IntroScreen'
 import QuizScreen, { type Answer, type Question, type Category } from '@/components/score/QuizScreen'
 import ResultScreen from '@/components/score/ResultScreen'
@@ -145,7 +146,6 @@ const QUESTIONS: Question[] = [
 // ─── Types ───────────────────────────────────────────────────────────────────
 
 type Screen = 'intro' | 'quiz' | 'result'
-type Language = 'es' | 'en'
 
 interface CategoryScores {
   web: number
@@ -171,7 +171,8 @@ const screenTransition = {
 
 export default function ScorePage() {
   const [screen, setScreen] = useState<Screen>('intro')
-  const [lang, setLang] = useState<Language>('es')
+  const { language } = useLanguage()
+  const lang = language as 'es' | 'en'
   const [userData, setUserData] = useState<UserData | null>(null)
   const [categoryScores, setCategoryScores] = useState<CategoryScores>({
     web: 0,
@@ -180,8 +181,6 @@ export default function ScorePage() {
     automation: 0,
   })
   const [totalScore, setTotalScore] = useState(0)
-
-  const toggleLang = () => setLang((l) => (l === 'es' ? 'en' : 'es'))
 
   const handleIntroSubmit = (data: UserData) => {
     setUserData(data)
@@ -240,7 +239,7 @@ export default function ScorePage() {
             exit="exit"
             transition={screenTransition}
           >
-            <IntroScreen lang={lang} onLangToggle={toggleLang} onSubmit={handleIntroSubmit} />
+            <IntroScreen lang={lang} onSubmit={handleIntroSubmit} />
           </motion.div>
         )}
 
@@ -255,7 +254,6 @@ export default function ScorePage() {
           >
             <QuizScreen
               lang={lang}
-              onLangToggle={toggleLang}
               questions={QUESTIONS}
               categories={CATEGORIES}
               onComplete={handleQuizComplete}
