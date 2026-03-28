@@ -21,7 +21,7 @@ const copy = {
     namePH: 'Nombre completo',
     emailPH: 'Email',
     waPH: '+1 (904) 000-0000',
-    cta: 'Iniciar diagnóstico gratuito →',
+    cta: 'Agenda una cita con nosotros →',
     meta: '3 minutos · 12 preguntas · 100% gratuito',
   },
   en: {
@@ -30,7 +30,7 @@ const copy = {
     namePH: 'Full name',
     emailPH: 'Email',
     waPH: '+1 (904) 000-0000',
-    cta: 'Start free diagnosis →',
+    cta: 'Schedule a meeting with us →',
     meta: '3 minutes · 12 questions · 100% free',
   },
 }

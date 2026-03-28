@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '@/hooks/useLanguage';
 import LanguageToggle from './LanguageToggle';
 
@@ -40,24 +41,24 @@ export default function Navbar() {
       }`}
     >
       <div className="flex items-center justify-between pointer-events-auto">
-        <a href="#" className="logo-luxury text-white">
+        <Link href="/" className="logo-luxury text-white">
           OUTRICK
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#services" className="font-body text-[15px] text-mist hover:text-ghost-white relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded">
+          <a href="/#services" className="font-body text-[15px] text-mist hover:text-ghost-white relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded">
             {t.nav.services}
             <span className="absolute left-0 bottom-0 top-[120%] w-0 h-[2px] bg-plasma-purple transition-all duration-300 group-hover:w-full"></span>
           </a>
-          <a href="#process" className="font-body text-[15px] text-mist hover:text-ghost-white relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded">
+          <a href="/#process" className="font-body text-[15px] text-mist hover:text-ghost-white relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded">
             {t.nav.process}
             <span className="absolute left-0 bottom-0 top-[120%] w-0 h-[2px] bg-plasma-purple transition-all duration-300 group-hover:w-full"></span>
           </a>
           <LanguageToggle />
-          <a href="/score" className="magnetic-btn btn-pill-primary px-6 py-2.5 text-[15px] inline-block">
+          <Link href="/score" className="magnetic-btn btn-pill-primary px-6 py-2.5 text-[15px] inline-block">
             {t.nav.contact}
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Toggle */}
@@ -79,13 +80,13 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-[120%] left-0 w-full bg-black/40 backdrop-blur-2xl border border-white/5 rounded-2xl p-6 flex flex-col gap-6 md:hidden shadow-2xl z-50">
-          <a onClick={() => setMenuOpen(false)} href="#services" className="text-xl text-ghost-white">{t.nav.services}</a>
-          <a onClick={() => setMenuOpen(false)} href="#process" className="text-xl text-ghost-white">{t.nav.process}</a>
+        <div className="absolute top-[120%] left-0 w-full bg-[#09090F]/60 backdrop-blur-md border border-white/5 rounded-2xl p-6 flex flex-col gap-6 md:hidden shadow-2xl z-50">
+          <a onClick={() => setMenuOpen(false)} href="/#services" className="text-xl text-ghost-white">{t.nav.services}</a>
+          <a onClick={() => setMenuOpen(false)} href="/#process" className="text-xl text-ghost-white">{t.nav.process}</a>
           <LanguageToggle />
-          <a onClick={() => setMenuOpen(false)} href="/score" className="btn-pill-primary px-6 py-3 text-center">
+          <Link onClick={() => setMenuOpen(false)} href="/score" className="btn-pill-primary px-6 py-3 text-center">
             {t.nav.contact}
-          </a>
+          </Link>
         </div>
       )}
     </header>

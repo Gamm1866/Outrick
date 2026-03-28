@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
@@ -55,15 +56,15 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="hero-animate flex flex-col sm:flex-row items-center gap-4 mb-6">
-          <a
-            href="#contact"
+          <Link
+            href="/score"
             className="magnetic-btn btn-pill-primary px-8 py-4 w-full sm:w-auto"
           >
             <span className="flex items-center justify-center gap-2">
               {t.hero.cta.replace(' ↗', '')}
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
             </span>
-          </a>
+          </Link>
           <a
             href="#services"
             className="magnetic-btn btn-pill-secondary px-8 py-4 w-full sm:w-auto"
