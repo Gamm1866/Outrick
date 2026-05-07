@@ -27,6 +27,20 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Analytics': 'text-amber-400 border-amber-400/30 bg-amber-400/10',
 };
 
+const CATEGORY_COVERS: Record<string, string> = {
+  'Growth Strategy': 'from-plasma-purple/20 via-plasma-purple/5 to-transparent',
+  'AI Automation':   'from-cyan-400/20 via-cyan-400/5 to-transparent',
+  'UX & Conversion': 'from-green-400/20 via-green-400/5 to-transparent',
+  'Analytics':       'from-amber-400/20 via-amber-400/5 to-transparent',
+};
+
+const CATEGORY_ICONS: Record<string, string> = {
+  'Growth Strategy': '📈',
+  'AI Automation':   '🤖',
+  'UX & Conversion': '🎯',
+  'Analytics':       '📊',
+};
+
 function formatDate(dateStr: string): string {
   return new Date(dateStr).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -40,7 +54,7 @@ export default function BlogPage() {
   const [featured, ...rest] = posts;
 
   return (
-    <main className="relative min-h-screen bg-deep-void text-ghost-white">
+    <main id="main-content" className="relative min-h-screen bg-deep-void text-ghost-white">
       <Navbar />
 
       {/* Hero */}
@@ -68,10 +82,13 @@ export default function BlogPage() {
           <div className="max-w-4xl mx-auto">
             <Link
               href={`/blog/${featured.slug}`}
-              className="group block rounded-2xl border border-white/8 bg-white/[0.03] hover:bg-white/[0.06] hover:border-plasma-purple/30 transition-all duration-300 overflow-hidden"
+              className="group block rounded-2xl border border-white/8 hover:border-plasma-purple/30 transition-all duration-300 overflow-hidden"
             >
-              <div className="p-8 md:p-10">
+              {/* Cover strip */}
+              <div className={`h-2 w-full bg-gradient-to-r ${CATEGORY_COVERS[featured.category] ?? 'from-plasma-purple/20 to-transparent'} opacity-80`} />
+              <div className="p-8 md:p-10 bg-white/[0.03] group-hover:bg-white/[0.05] transition-colors duration-300">
                 <div className="flex items-center gap-3 mb-5">
+                  <span className="text-xl" aria-hidden="true">{CATEGORY_ICONS[featured.category]}</span>
                   <span className={`font-mono text-[11px] tracking-widest uppercase px-2.5 py-1 rounded-full border ${CATEGORY_COLORS[featured.category] ?? 'text-mist border-white/10 bg-white/5'}`}>
                     {featured.category}
                   </span>
@@ -105,23 +122,31 @@ export default function BlogPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group block rounded-xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.05] hover:border-plasma-purple/25 transition-all duration-300 p-6"
+                className="group block rounded-xl border border-white/8 hover:border-plasma-purple/25 transition-all duration-300 overflow-hidden"
               >
-                <div className="mb-4">
-                  <span className={`font-mono text-[11px] tracking-widest uppercase px-2.5 py-1 rounded-full border ${CATEGORY_COLORS[post.category] ?? 'text-mist border-white/10 bg-white/5'}`}>
-                    {post.category}
+                {/* Cover */}
+                <div className={`h-24 bg-gradient-to-br ${CATEGORY_COVERS[post.category] ?? 'from-plasma-purple/20 to-transparent'} flex items-center justify-center`}>
+                  <span className="text-4xl opacity-60" aria-hidden="true">
+                    {CATEGORY_ICONS[post.category]}
                   </span>
                 </div>
-                <h2 className="font-heading text-[18px] font-light text-ghost-white group-hover:text-plasma-purple transition-colors duration-300 leading-snug mb-3">
-                  {post.title}
-                </h2>
-                <p className="font-body text-[14px] text-mist leading-relaxed mb-5 line-clamp-2">
-                  {post.description}
-                </p>
-                <div className="flex items-center gap-3 text-ash font-mono text-[12px]">
-                  <span>{formatDate(post.date)}</span>
-                  <span>·</span>
-                  <span>{post.readTime}</span>
+                <div className="p-6 bg-white/[0.02] group-hover:bg-white/[0.04] transition-colors duration-300">
+                  <div className="mb-4">
+                    <span className={`font-mono text-[11px] tracking-widest uppercase px-2.5 py-1 rounded-full border ${CATEGORY_COLORS[post.category] ?? 'text-mist border-white/10 bg-white/5'}`}>
+                      {post.category}
+                    </span>
+                  </div>
+                  <h2 className="font-heading text-[18px] font-light text-ghost-white group-hover:text-plasma-purple transition-colors duration-300 leading-snug mb-3">
+                    {post.title}
+                  </h2>
+                  <p className="font-body text-[14px] text-mist leading-relaxed mb-5 line-clamp-2">
+                    {post.description}
+                  </p>
+                  <div className="flex items-center gap-3 text-ash font-mono text-[12px]">
+                    <span>{formatDate(post.date)}</span>
+                    <span>·</span>
+                    <span>{post.readTime}</span>
+                  </div>
                 </div>
               </Link>
             ))}

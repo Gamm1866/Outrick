@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import EmailCapture from '@/components/blog/EmailCapture';
 import { getAllPosts, getPostBySlug, type PostSection } from '@/lib/posts';
 
 interface Props {
@@ -156,7 +157,7 @@ export default async function PostPage({ params }: Props) {
   };
 
   return (
-    <main className="relative min-h-screen bg-deep-void text-ghost-white">
+    <main id="main-content" className="relative min-h-screen bg-deep-void text-ghost-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -213,6 +214,13 @@ export default async function PostPage({ params }: Props) {
           </div>
         </div>
       </article>
+
+      {/* Email capture */}
+      <section className="px-6 pb-12">
+        <div className="max-w-2xl mx-auto">
+          <EmailCapture />
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="px-6 pb-24">
