@@ -5,6 +5,7 @@ export const translations = {
     nav: {
       services: 'Services',
       process: 'Process',
+      blog: 'Blog',
       contact: 'Get Your Free Score',
     },
     hero: {
@@ -103,6 +104,7 @@ export const translations = {
     nav: {
       services: 'Servicios',
       process: 'Proceso',
+      blog: 'Blog',
       contact: 'Tu Score Gratis',
     },
     hero: {
