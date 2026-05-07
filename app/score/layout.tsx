@@ -3,15 +3,15 @@ import Navbar from '@/components/Navbar'
 import CallButton from '@/components/score/CallButton'
 
 export const metadata: Metadata = {
-  title: 'Score Digital Gratuito | Outrick',
+  title: 'Free Digital Score | Outrick',
   description:
-    'Descubre qué tan visible está tu negocio online. Score de 0 a 100 con recomendaciones accionables. 100% gratuito, 3 minutos.',
+    'Get a 0-100 score of your digital presence. Actionable recommendations in 15 minutes. 100% free, no commitment.',
   openGraph: {
     title: 'Score Digital Gratuito | Outrick',
     description: '¿Tu negocio crece o adivina? Descubre tu Score Digital en 3 minutos.',
-    url: 'https://outrick.net/score',
+    url: 'https://outrick.com/score',
     siteName: 'Outrick',
-    locale: 'es_ES',
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: '¿Tu negocio crece o adivina? Descubre tu Score Digital en 3 minutos.',
   },
   alternates: {
-    canonical: 'https://outrick.net/score',
+    canonical: 'https://outrick.com/score',
   },
 }
 
