@@ -47,10 +47,10 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="/#services" className="font-body text-[15px] text-mist hover:text-ghost-white relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded">
+          <Link href="/services" className="font-body text-[15px] text-mist hover:text-ghost-white relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded">
             {t.nav.services}
             <span className="absolute left-0 bottom-0 top-[120%] w-0 h-[2px] bg-plasma-purple transition-all duration-300 group-hover:w-full"></span>
-          </a>
+          </Link>
           <a href="/#process" className="font-body text-[15px] text-mist hover:text-ghost-white relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded">
             {t.nav.process}
             <span className="absolute left-0 bottom-0 top-[120%] w-0 h-[2px] bg-plasma-purple transition-all duration-300 group-hover:w-full"></span>
@@ -85,7 +85,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="absolute top-[120%] left-0 w-full bg-[#09090F]/60 backdrop-blur-md border border-white/5 rounded-2xl p-6 flex flex-col gap-6 md:hidden shadow-2xl z-50">
-          <a onClick={() => setMenuOpen(false)} href="/#services" className="text-xl text-ghost-white">{t.nav.services}</a>
+          <Link onClick={() => setMenuOpen(false)} href="/services" className="text-xl text-ghost-white">{t.nav.services}</Link>
           <a onClick={() => setMenuOpen(false)} href="/#process" className="text-xl text-ghost-white">{t.nav.process}</a>
           <Link onClick={() => setMenuOpen(false)} href="/blog" className="text-xl text-ghost-white">{t.nav.blog}</Link>
           <LanguageToggle />
