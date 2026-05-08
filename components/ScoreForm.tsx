@@ -58,7 +58,8 @@ export default function ScoreForm() {
           challenge: data.challenge,
           lang: language,
           _subject: 'New Outrick Lead: ' + data.name,
-          _template: 'table'
+          _template: 'table',
+          _honey: ''
         }),
       });
 
@@ -123,25 +124,27 @@ export default function ScoreForm() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-2">
                     <label htmlFor="name" className="text-[13px] font-body text-mist pl-1">{t.form.f1}</label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      name="name" 
-                      required 
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
                       aria-required="true"
                       autoComplete="name"
+                      maxLength={80}
                       className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-ghost-white font-body focus:outline-none focus:border-plasma-purple focus:ring-4 focus:ring-plasma-purple/20 transition-all placeholder-white/20"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
                     <label htmlFor="email" className="text-[13px] font-body text-mist pl-1">{t.form.f2}</label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      name="email" 
-                      required 
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
                       aria-required="true"
                       autoComplete="email"
+                      maxLength={100}
                       className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-ghost-white font-body focus:outline-none focus:border-plasma-purple focus:ring-4 focus:ring-plasma-purple/20 transition-all placeholder-white/20"
                     />
                   </div>
@@ -149,37 +152,40 @@ export default function ScoreForm() {
 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="phone" className="text-[13px] font-body text-mist pl-1">{t.form.f3}</label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    name="phone" 
-                    required 
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
                     aria-required="true"
                     autoComplete="tel"
+                    maxLength={20}
                     className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-ghost-white font-body focus:outline-none focus:border-plasma-purple focus:ring-4 focus:ring-plasma-purple/20 transition-all placeholder-white/20"
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="business" className="text-[13px] font-body text-mist pl-1">{t.form.f4}</label>
-                  <input 
-                    type="text" 
-                    id="business" 
-                    name="business" 
-                    required 
+                  <input
+                    type="text"
+                    id="business"
+                    name="business"
+                    required
                     aria-required="true"
+                    maxLength={100}
                     className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-ghost-white font-body focus:outline-none focus:border-plasma-purple focus:ring-4 focus:ring-plasma-purple/20 transition-all placeholder-white/20"
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="challenge" className="text-[13px] font-body text-mist pl-1">{t.form.f5}</label>
-                  <textarea 
-                    id="challenge" 
-                    name="challenge" 
-                    required 
+                  <textarea
+                    id="challenge"
+                    name="challenge"
+                    required
                     aria-required="true"
                     rows={3}
+                    maxLength={500}
                     placeholder={t.form.placeholder}
                     className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-ghost-white font-body focus:outline-none focus:border-plasma-purple focus:ring-4 focus:ring-plasma-purple/20 transition-all placeholder-white/30 resize-none"
                   />

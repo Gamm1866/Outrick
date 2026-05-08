@@ -200,24 +200,6 @@ export default function ScorePage() {
     setTotalScore(total)
     setScreen('result')
 
-    // Submit to n8n webhook — configure N8N_URL in your environment
-    if (userData) {
-      fetch('https://outrick1866.app.n8n.cloud/webhook/score-outrick', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: userData.name,
-          email: userData.email,
-          whatsapp: userData.whatsapp,
-          totalScore: total,
-          scores,
-          language: lang,
-          timestamp: new Date().toISOString(),
-        }),
-      }).catch(() => {
-        // fail silently — results still shown to user
-      })
-    }
   }
 
   return (

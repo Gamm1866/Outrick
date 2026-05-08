@@ -11,14 +11,19 @@ export default function EmailCapture() {
     if (!email) return;
     setStatus('loading');
     try {
-      await fetch('https://outrick1866.app.n8n.cloud/webhook/blog-subscribe', {
+      const response = await fetch('https://formsubmit.co/ajax/sales@outrick.net', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, timestamp: new Date().toISOString() }),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          email,
+          _subject: 'Blog subscriber: ' + email,
+          _template: 'table',
+          _honey: '',
+        }),
       });
-      setStatus('done');
+      setStatus(response.ok ? 'done' : 'error');
     } catch {
-      setStatus('done'); // show success even if webhook is not yet live
+      setStatus('error');
     }
   }
 
@@ -49,6 +54,7 @@ export default function EmailCapture() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
               required
+              maxLength={100}
               className="flex-1 bg-white/5 border border-white/10 rounded-full px-5 py-2.5 font-body text-[14px] text-ghost-white placeholder:text-ash focus:outline-none focus:border-plasma-purple/50 transition-colors"
             />
             <button
@@ -59,6 +65,9 @@ export default function EmailCapture() {
               {status === 'loading' ? 'Subscribing…' : 'Subscribe →'}
             </button>
           </form>
+          {status === 'error' && (
+            <p className="mt-3 font-body text-[13px] text-red-400">Something went wrong. Please try again.</p>
+          )}
         </>
       )}
     </div>
