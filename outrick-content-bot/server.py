@@ -400,6 +400,39 @@ def regenerate():
     except Exception as e:
         return f"Error al regenerar contenido: {str(e)}", 500
 
+# ==================== BACKGROUND SCHEDULER ====================
+
+try:
+    from apscheduler.schedulers.background import BackgroundScheduler
+    import pytz
+
+    def trigger_scheduled_generation():
+        print("⏰ Iniciando tarea programada de generación de contenido...")
+        try:
+            # Import dynamically to avoid circular references
+            import main as content_main
+            content_main.main()
+            print("⏰ Tarea programada completada con éxito.")
+        except Exception as e:
+            print(f"❌ Error en la tarea programada: {e}")
+
+    # Set up background scheduler
+    scheduler = BackgroundScheduler()
+    # Runs Monday and Thursday at 8:00 AM America/New_York (EST)
+    scheduler.add_job(
+        trigger_scheduled_generation,
+        'cron',
+        day_of_week='mon,thu',
+        hour=8,
+        minute=0,
+        timezone=pytz.timezone('America/New_York')
+    )
+    scheduler.start()
+    print("⏰ Planificador de fondo iniciado: Generación programada los Lunes y Jueves a las 8:00 AM EST.")
+except Exception as scheduler_err:
+    print(f"⚠ No se pudo iniciar el planificador de fondo: {scheduler_err}")
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
+

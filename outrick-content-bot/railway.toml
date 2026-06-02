@@ -1,7 +1,2 @@
 [deploy]
 startCommand = "python server.py"
-
-[[cron]]
-name = "content-generation"
-schedule = "0 13 * * 1,4"  # Lunes y jueves 8am EST (UTC-5 = 13:00 UTC)
-command = "python main.py"
