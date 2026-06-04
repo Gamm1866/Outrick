@@ -3,6 +3,7 @@ import { Inter_Tight, DM_Sans, JetBrains_Mono, Instrument_Serif } from 'next/fon
 import './globals.css';
 import SkipToContent from '@/components/SkipToContent';
 import JsonLd from '@/components/JsonLd';
+import MetaPixel from '@/components/MetaPixel';
 import { Providers } from './providers';
 
 const interTight = Inter_Tight({
@@ -60,6 +61,7 @@ export default function RootLayout({
     <html lang="en" className={`scroll-smooth ${interTight.variable} ${dmSans.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable}`}>
       <head>
         <JsonLd />
+        <MetaPixel />
       </head>
       <body className="antialiased font-body bg-deep-void text-ghost-white relative">
         <svg
