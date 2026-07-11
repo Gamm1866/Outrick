@@ -41,7 +41,8 @@ export default function MetaPixel() {
 // Helper to track custom events from any client component
 // Usage: trackEvent('Lead', { content_name: 'Score Digital' })
 export function trackEvent(event: string, params?: Record<string, unknown>) {
-  if (typeof window !== 'undefined' && (window as Window & { fbq?: (...args: unknown[]) => void }).fbq) {
-    (window as Window & { fbq: (...args: unknown[]) => void }).fbq('track', event, params);
+  const fbq = (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq;
+  if (typeof window !== 'undefined' && fbq) {
+    fbq('track', event, params);
   }
 }
