@@ -45,6 +45,7 @@ export default function Process() {
     <section id="process" ref={sectionRef} className="pt-[120px] pb-32 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-24">
+          <span className="eyebrow block mb-4">{t.process.eyebrow}</span>
           <h2 className="text-4xl md:text-5xl text-ghost-white mb-6">
             {t.process.title}
           </h2>

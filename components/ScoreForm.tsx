@@ -80,6 +80,7 @@ export default function ScoreForm() {
       <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left Side */}
         <div className="form-element max-w-lg">
+          <span className="eyebrow block mb-4">{t.form.eyebrow}</span>
           <h2 className="text-4xl md:text-5xl text-ghost-white mb-6 leading-tight">
             {t.form.title}
           </h2>

@@ -18,6 +18,7 @@ export const translations = {
       subCta: '15-min video call · No commitment · 100% free',
     },
     pain: {
+      eyebrow: 'The Problem',
       title: 'Sound Familiar?',
       p1: "Your website gets traffic but doesn't convert",
       p2: "You don't know which metrics actually matter",
@@ -25,6 +26,7 @@ export const translations = {
       p4: "You make decisions based on gut feeling, not data",
     },
     services: {
+      eyebrow: 'Services',
       title: 'What We Do',
       sub: "We don't sell marketing hype. We deliver measurable growth through science.",
       s1: {
@@ -45,6 +47,7 @@ export const translations = {
       p2: 'We focus on: scientific growth you can measure.',
     },
     process: {
+      eyebrow: 'Method',
       title: 'Our Method',
       sub: 'Scientific. Repeatable. Measurable.',
       s1: {
@@ -69,12 +72,14 @@ export const translations = {
       }
     },
     proof: {
+      eyebrow: 'Track Record',
       title: 'Built on Experience',
       s1: '+5 Years optimizing digital experiences',
       s2: 'Arturo Calle, Bata & Payless — Former design lead for recognized brands',
       s3: '100% Digital consultancy — Based in Hollywood, FL',
     },
     form: {
+      eyebrow: 'Get Started',
       title: 'Get Your Free Performance Score',
       sub: "Find out how your digital presence scores from 0 to 100. We'll analyze your website, metrics, and conversion flow — then walk you through the results in a 15-minute call.",
       b1: "Know exactly where you're losing conversions",
@@ -117,6 +122,7 @@ export const translations = {
       subCta: 'Videollamada de 15 min · Sin compromiso · 100% gratis',
     },
     pain: {
+      eyebrow: 'El Problema',
       title: '¿Te Suena Familiar?',
       p1: 'Tu sitio web tiene tráfico pero no convierte',
       p2: 'No sabes qué métricas realmente importan',
@@ -124,6 +130,7 @@ export const translations = {
       p4: 'Tomas decisiones basadas en intuición, no en datos',
     },
     services: {
+      eyebrow: 'Servicios',
       title: 'Qué Hacemos',
       sub: 'No vendemos humo de marketing. Entregamos crecimiento medible a través de ciencia.',
       s1: {
@@ -144,6 +151,7 @@ export const translations = {
       p2: 'Nosotros nos enfocamos en: crecimiento científico que puedes medir.',
     },
     process: {
+      eyebrow: 'Método',
       title: 'Nuestro Método',
       sub: 'Científico. Repetible. Medible.',
       s1: {
@@ -168,12 +176,14 @@ export const translations = {
       }
     },
     proof: {
+      eyebrow: 'Trayectoria',
       title: 'Respaldado por Experiencia',
       s1: '+5 Años optimizando experiencias digitales',
       s2: 'Arturo Calle, Bata y Payless — Ex líder de diseño para marcas reconocidas',
       s3: '100% Consultoría digital — Base en Hollywood, FL',
     },
     form: {
+      eyebrow: 'Empieza Ahora',
       title: 'Obtén Tu Performance Score Gratis',
       sub: 'Descubre cómo puntúa tu presencia digital de 0 a 100. Analizaremos tu sitio web, métricas y flujo de conversión — y te presentaremos los resultados en una llamada de 15 minutos.',
       b1: 'Saber exactamente dónde estás perdiendo conversiones',

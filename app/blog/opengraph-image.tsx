@@ -1,21 +1,11 @@
 import { ImageResponse } from 'next/og';
-import { getServiceBySlug, getAllServices } from '@/lib/services';
 
+export const runtime = 'edge';
+export const alt = 'Outrick Blog — Data-Driven Growth Insights';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-export async function generateStaticParams() {
-  return getAllServices().map((s) => ({ slug: s.slug }));
-}
-
-export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const service = getServiceBySlug(slug);
-
-  const title = service?.title ?? 'Services';
-  const tagline = service?.tagline ?? 'Data-driven growth for small businesses';
-  const accent = service?.accentColor ?? '#4C7CFF';
-
+export default function Image() {
   return new ImageResponse(
     (
       <div
@@ -30,21 +20,21 @@ export default async function Image({ params }: { params: Promise<{ slug: string
         }}
       >
         {/* Accent stripe */}
-        <div style={{ width: 48, height: 4, background: accent, borderRadius: 2, marginBottom: 40 }} />
+        <div style={{ width: 48, height: 4, background: '#4C7CFF', borderRadius: 2, marginBottom: 40 }} />
 
         {/* Label */}
-        <p style={{ fontSize: 14, color: accent, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 24, fontFamily: 'monospace' }}>
-          Outrick · Service
+        <p style={{ fontSize: 14, color: '#4C7CFF', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 24, fontFamily: 'monospace' }}>
+          Outrick · Blog
         </p>
 
         {/* Title */}
         <h1 style={{ fontSize: 56, fontWeight: 300, color: '#F0F0F5', lineHeight: 1.15, marginBottom: 24, maxWidth: 800 }}>
-          {title}
+          Data-Driven Growth Insights
         </h1>
 
-        {/* Tagline */}
+        {/* Description */}
         <p style={{ fontSize: 22, color: '#A0A0B0', lineHeight: 1.5, maxWidth: 700 }}>
-          {tagline}
+          Practical guides on growth metrics, AI automation, UX optimization, and analytics for SMBs. No fluff, just data.
         </p>
 
         {/* Bottom brand */}
@@ -52,7 +42,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           <p style={{ fontSize: 20, color: '#F0F0F5', letterSpacing: '0.08em', fontFamily: 'monospace' }}>
             OUTRICK
           </p>
-          <p style={{ fontSize: 14, color: '#606070', fontFamily: 'monospace' }}>outrick.com/services</p>
+          <p style={{ fontSize: 14, color: '#606070', fontFamily: 'monospace' }}>outrick.com/blog</p>
         </div>
       </div>
     ),

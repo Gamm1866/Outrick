@@ -219,6 +219,7 @@ export default function Features() {
     <section id="services" ref={sectionRef} className="py-24 px-6 relative">
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-20 max-w-2xl mx-auto">
+          <span className="eyebrow block mb-4">{t.services.eyebrow}</span>
           <h2 className="text-4xl md:text-5xl text-ghost-white mb-6">
             {t.services.title}
           </h2>

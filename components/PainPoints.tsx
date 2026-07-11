@@ -127,6 +127,7 @@ export default function PainPoints() {
   return (
     <section ref={sectionRef} className="py-24 px-6 relative">
       <div className="max-w-[1000px] mx-auto">
+        <span className="eyebrow block mb-4 text-center">{t.pain.eyebrow}</span>
         <h2 className="text-center text-3xl md:text-4xl text-ghost-white mb-16">
           {t.pain.title}
         </h2>

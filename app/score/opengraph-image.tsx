@@ -10,7 +10,7 @@ export default async function OGImage() {
     (
       <div
         style={{
-          background: '#09090F',
+          background: '#03021B',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -33,11 +33,11 @@ export default async function OGImage() {
               width: '8px',
               height: '8px',
               borderRadius: '50%',
-              background: '#7B61FF',
+              background: '#4C7CFF',
               marginRight: '12px',
             }}
           />
-          <span style={{ color: '#7B61FF', fontSize: '14px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+          <span style={{ color: '#4C7CFF', fontSize: '14px', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
             100% Gratuito · Sin Compromiso
           </span>
         </div>
@@ -72,7 +72,7 @@ export default async function OGImage() {
         >
           <div
             style={{
-              background: '#7B61FF',
+              background: '#4C7CFF',
               color: '#fff',
               padding: '12px 28px',
               borderRadius: '9999px',

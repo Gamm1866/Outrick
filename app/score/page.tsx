@@ -10,7 +10,7 @@ import ResultScreen from '@/components/score/ResultScreen'
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const CATEGORIES: Category[] = [
-  { key: 'web', es: '01 Presencia web', en: '01 Web presence', color: '#7B61FF', maxScore: 25 },
+  { key: 'web', es: '01 Presencia web', en: '01 Web presence', color: '#4C7CFF', maxScore: 25 },
   { key: 'local', es: '02 Presencia local', en: '02 Local presence', color: '#1D9E75', maxScore: 30 },
   { key: 'social', es: '03 Redes sociales', en: '03 Social media', color: '#378ADD', maxScore: 25 },
   { key: 'automation', es: '04 Automatización', en: '04 Automation', color: '#EF9F27', maxScore: 20 },
@@ -206,7 +206,7 @@ export default function ScorePage() {
     <div
       style={{
         minHeight: '100vh',
-        background: '#09090F',
+        background: '#03021B',
         color: '#F0F0F5',
         fontFamily: 'var(--font-body)',
       }}
