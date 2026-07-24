@@ -32,23 +32,24 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: 'Outrick | Real Growth Backed by Data',
-  description: 'Data-driven growth consulting for SMBs. Performance metrics, UX optimization, AI automation. Hollywood, FL.',
+  metadataBase: new URL('https://www.outrick.net'),
+  title: 'Outrick | Data-Driven Growth for SMBs — Hollywood, FL',
+  description: 'Outrick helps SMBs grow with data: performance metrics, UX & conversion optimization, and AI automation. Get your free Performance Score. Based in Hollywood, FL.',
   alternates: {
-    canonical: 'https://outrick.com',
+    canonical: '/',
   },
   openGraph: {
-    title: 'Outrick | Real Growth Backed by Data',
-    description: 'Data-driven growth consulting for SMBs.',
-    url: 'https://outrick.com',
+    title: 'Outrick | Data-Driven Growth for SMBs — Hollywood, FL',
+    description: 'Grow with data: performance metrics, UX & conversion optimization, AI automation. Free Performance Score. Hollywood, FL.',
+    url: 'https://www.outrick.net',
     siteName: 'Outrick',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Outrick | Real Growth Backed by Data',
-    description: 'Data-driven growth consulting for SMBs. Performance metrics, UX optimization, AI automation. Hollywood, FL.',
+    title: 'Outrick | Data-Driven Growth for SMBs — Hollywood, FL',
+    description: 'Grow with data: performance metrics, UX & conversion optimization, AI automation. Free Performance Score. Hollywood, FL.',
   },
 };
 

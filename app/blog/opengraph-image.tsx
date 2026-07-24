@@ -42,7 +42,7 @@ export default function Image() {
           <p style={{ fontSize: 20, color: '#F0F0F5', letterSpacing: '0.08em', fontFamily: 'monospace' }}>
             OUTRICK
           </p>
-          <p style={{ fontSize: 14, color: '#606070', fontFamily: 'monospace' }}>outrick.com/blog</p>
+          <p style={{ fontSize: 14, color: '#606070', fontFamily: 'monospace' }}>outrick.net/blog</p>
         </div>
       </div>
     ),

@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: 'Services | Outrick — AI Automation, Growth Marketing & UX',
   description: 'AI automation, data-driven growth marketing, and UX optimization for small businesses. Practical systems that save time and increase revenue.',
   alternates: {
-    canonical: 'https://outrick.com/services',
+    canonical: 'https://www.outrick.net/services',
   },
   openGraph: {
     title: 'Services | Outrick',
     description: 'AI automation, data-driven growth marketing, and UX optimization for small and medium businesses.',
-    url: 'https://outrick.com/services',
+    url: 'https://www.outrick.net/services',
     siteName: 'Outrick',
     locale: 'en_US',
     type: 'website',

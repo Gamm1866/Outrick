@@ -9,6 +9,7 @@ export interface Post {
   title: string;
   description: string;
   date: string;
+  updatedAt?: string;
   readTime: string;
   category: string;
   keywords: string[];

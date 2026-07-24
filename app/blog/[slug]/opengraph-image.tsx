@@ -73,7 +73,7 @@ export default async function OGImage({ params }: { params: { slug: string } }) 
         {/* Bottom bar */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', width: '100%' }}>
           <div style={{ width: '32px', height: '2px', background: accentColor }} />
-          <span style={{ color: '#6B7280', fontSize: '14px' }}>outrick.com/blog</span>
+          <span style={{ color: '#6B7280', fontSize: '14px' }}>outrick.net/blog</span>
           {readTime && (
             <>
               <span style={{ color: '#374151', fontSize: '14px' }}>·</span>

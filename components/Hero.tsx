@@ -36,7 +36,7 @@ export default function Hero() {
         {/* Left: badge + headline */}
         <div className="flex flex-col items-start text-left">
           <div className="hero-animate badge-glass inline-flex items-center gap-2 rounded-full p-1 pr-4 mb-8">
-            <span className="bg-plasma-purple text-white rounded-full px-3 py-1 text-xs font-bold leading-none">
+            <span className="bg-[#3E63E0] text-white rounded-full px-3 py-1 text-xs font-bold leading-none">
               {t.hero.badge.split(']')[0] + ']'}
             </span>
             <span className="text-sm font-body text-ghost-white">

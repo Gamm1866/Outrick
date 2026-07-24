@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: 'Blog | Outrick — Data-Driven Growth Insights',
   description: 'Practical guides on growth metrics, AI automation, UX optimization, and analytics for small and medium businesses. No fluff, just data.',
   alternates: {
-    canonical: 'https://outrick.com/blog',
+    canonical: 'https://www.outrick.net/blog',
   },
   openGraph: {
     title: 'Blog | Outrick — Data-Driven Growth Insights',
     description: 'Practical guides on growth metrics, AI automation, UX optimization, and analytics for SMBs.',
-    url: 'https://outrick.com/blog',
+    url: 'https://www.outrick.net/blog',
     siteName: 'Outrick',
     locale: 'en_US',
     type: 'website',

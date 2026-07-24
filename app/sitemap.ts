@@ -3,7 +3,7 @@ import { getAllPosts } from '@/lib/posts';
 import { getAllServices } from '@/lib/services';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const url = process.env.NEXT_PUBLIC_SITE_URL || 'https://outrick.com';
+  const url = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.outrick.net';
   const posts = getAllPosts();
   const services = getAllServices();
 
@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const serviceUrls: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${url}/services/${service.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date('2025-06-01'),
     changeFrequency: 'monthly',
     priority: 0.8,
   }));
@@ -24,25 +24,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url,
-      lastModified: new Date(),
+      lastModified: new Date('2025-06-01'),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${url}/score`,
-      lastModified: new Date(),
+      lastModified: new Date('2025-06-01'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${url}/services`,
-      lastModified: new Date(),
+      lastModified: new Date('2025-06-01'),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${url}/blog`,
-      lastModified: new Date(),
+      lastModified: new Date('2025-06-01'),
       changeFrequency: 'weekly',
       priority: 0.8,
     },

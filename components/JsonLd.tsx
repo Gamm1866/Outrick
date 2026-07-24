@@ -4,11 +4,15 @@ export default function JsonLd() {
     '@graph': [
       {
         '@type': 'ProfessionalService',
-        '@id': 'https://outrick.com/#business',
+        '@id': 'https://www.outrick.net/#business',
         name: 'Outrick',
-        url: 'https://outrick.com',
+        url: 'https://www.outrick.net',
         description: 'Data-driven growth consulting for SMBs. Performance metrics, UX optimization, AI automation.',
         serviceType: 'Business Growth Consulting',
+        telephone: '+19045904962',
+        email: 'sales@outrick.net',
+        // TODO: añadir perfiles reales para reforzar la entidad ante Google e IAs.
+        // sameAs: ['https://www.facebook.com/…', 'https://www.instagram.com/…', 'https://www.linkedin.com/company/…'],
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Hollywood',
@@ -49,14 +53,14 @@ export default function JsonLd() {
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://outrick.com/#website',
-        url: 'https://outrick.com',
+        '@id': 'https://www.outrick.net/#website',
+        url: 'https://www.outrick.net',
         name: 'Outrick',
-        publisher: { '@id': 'https://outrick.com/#business' },
+        publisher: { '@id': 'https://www.outrick.net/#business' },
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://outrick.com/#faq',
+        '@id': 'https://www.outrick.net/#faq',
         mainEntity: [
           {
             '@type': 'Question',

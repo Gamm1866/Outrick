@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: service.description,
     keywords: service.keywords,
     alternates: {
-      canonical: `https://outrick.com/services/${service.slug}`,
+      canonical: `https://www.outrick.net/services/${service.slug}`,
     },
     openGraph: {
       title: service.title,
       description: service.description,
-      url: `https://outrick.com/services/${service.slug}`,
+      url: `https://www.outrick.net/services/${service.slug}`,
       siteName: 'Outrick',
       locale: 'en_US',
       type: 'website',
@@ -111,17 +111,17 @@ export default async function ServicePage({ params }: Props) {
     description: service.description,
     provider: {
       '@type': 'ProfessionalService',
-      '@id': 'https://outrick.com/#business',
+      '@id': 'https://www.outrick.net/#business',
       name: 'Outrick',
-      url: 'https://outrick.com',
+      url: 'https://www.outrick.net',
     },
-    url: `https://outrick.com/services/${service.slug}`,
+    url: `https://www.outrick.net/services/${service.slug}`,
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://outrick.com' },
-        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://outrick.com/services' },
-        { '@type': 'ListItem', position: 3, name: service.title, item: `https://outrick.com/services/${service.slug}` },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.outrick.net' },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.outrick.net/services' },
+        { '@type': 'ListItem', position: 3, name: service.title, item: `https://www.outrick.net/services/${service.slug}` },
       ],
     },
   };

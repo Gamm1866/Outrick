@@ -82,7 +82,7 @@ export default async function OGImage() {
           >
             Get Your Free Score →
           </div>
-          <span style={{ color: '#6B7280', fontSize: '14px' }}>outrick.com</span>
+          <span style={{ color: '#6B7280', fontSize: '14px' }}>outrick.net</span>
         </div>
       </div>
     ),
