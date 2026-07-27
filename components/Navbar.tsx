@@ -46,22 +46,24 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="/services" className="font-body text-[15px] text-mist hover:text-ghost-white relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded">
-            {t.nav.services}
-            <span className="absolute left-0 bottom-0 top-[120%] w-0 h-[2px] bg-plasma-purple transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <a href="/#process" className="font-body text-[15px] text-mist hover:text-ghost-white relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded">
-            {t.nav.process}
-            <span className="absolute left-0 bottom-0 top-[120%] w-0 h-[2px] bg-plasma-purple transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <Link href="/blog" className="font-body text-[15px] text-mist hover:text-ghost-white relative group focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded">
-            {t.nav.blog}
-            <span className="absolute left-0 bottom-0 top-[120%] w-0 h-[2px] bg-plasma-purple transition-all duration-300 group-hover:w-full"></span>
-          </Link>
+        <nav className="hidden md:flex items-center gap-5">
+          <div className="nav-links-pill flex items-center gap-1">
+            <Link href="/services" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
+              {t.nav.services}
+            </Link>
+            <a href="/#process" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
+              {t.nav.process}
+            </a>
+            <Link href="/blog" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
+              {t.nav.blog}
+            </Link>
+          </div>
           <LanguageToggle />
-          <Link href="/score" className="magnetic-btn btn-pill-primary px-6 py-2.5 text-[15px] inline-block">
+          <Link href="/score" className="magnetic-btn btn-pill-primary pl-6 pr-2 py-2 text-[15px] inline-flex items-center gap-3">
             {t.nav.contact}
+            <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/20">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+            </span>
           </Link>
         </nav>
 

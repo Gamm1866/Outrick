@@ -7,6 +7,7 @@ import { gsap } from 'gsap';
 
 import HeroBackground from './HeroBackground';
 import HeroStars from './HeroStars';
+import HeroAI3D from './HeroAI3D';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -31,6 +32,7 @@ export default function Hero() {
     <section ref={container} className="relative w-full min-h-[100dvh] hero-gradient overflow-hidden flex items-end justify-center pt-32 pb-24">
       <HeroBackground />
       <HeroStars />
+      <HeroAI3D />
 
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 items-end">
         {/* Left: badge + headline */}
