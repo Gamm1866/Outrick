@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import HeroVeil from '@/components/HeroVeil';
 import Hero from '@/components/Hero';
 import PainPoints from '@/components/PainPoints';
 import Features from '@/components/Features';
@@ -12,12 +13,11 @@ import PhoneButton from '@/components/PhoneButton';
 
 export default function Home() {
   return (
-    <main id="main-content" className="relative min-h-screen bg-deep-void selection:bg-plasma-purple/30 selection:text-ghost-white flex flex-col pt-0">
+    <main id="main-content" className="relative min-h-screen bg-[#030209] selection:bg-plasma-purple/30 selection:text-ghost-white flex flex-col pt-0">
+      <HeroVeil />
       <Navbar />
       <Hero />
-      <div className="section-divider" />
       <PainPoints />
-      <div className="section-divider" />
       <Features />
       <div className="section-divider" />
       <Philosophy />

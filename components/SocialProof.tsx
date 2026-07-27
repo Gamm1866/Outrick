@@ -52,23 +52,23 @@ export default function SocialProof() {
             +5
           </div>
           <div className="font-body text-[14px] font-[600] uppercase tracking-[0.1em] text-[#7A7F8E] mb-4">
-            Years
+            {t.proof.s1Label}
           </div>
           <p className="font-body text-[16px] text-[#7A7F8E] leading-relaxed">
-            Optimizing digital experiences
+            {t.proof.s1Body}
           </p>
         </div>
 
         {/* Card 2 */}
         <div className="stat-card xtract-card flex flex-col items-start md:items-center text-left md:text-center">
           <div className="font-body text-[12px] font-[600] uppercase tracking-[0.15em] text-[#4A4F62] mb-4">
-            TRUSTED BY
+            {t.proof.s2Label}
           </div>
           <div className="font-inter-tight text-[20px] font-[600] text-ghost-white leading-tight mb-4">
             Arturo Calle · Bata · Payless
           </div>
           <p className="font-body text-[15px] text-[#7A7F8E] leading-relaxed">
-            Former design lead for recognized brands
+            {t.proof.s2Body}
           </p>
         </div>
 
@@ -78,10 +78,10 @@ export default function SocialProof() {
             100%
           </div>
           <div className="font-body text-[14px] font-[600] uppercase tracking-[0.1em] text-[#7A7F8E] mb-4">
-            Digital
+            {t.proof.s3Label}
           </div>
           <p className="font-body text-[16px] text-[#7A7F8E] leading-relaxed">
-            Remote consultancy — Hollywood, FL
+            {t.proof.s3Body}
           </p>
         </div>
       </div>

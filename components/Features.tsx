@@ -215,65 +215,43 @@ export default function Features() {
     return () => ctx.revert();
   }, []);
 
+  const cards = [
+    { title: t.services.s1.title, desc: t.services.s1.desc, visual: <TelemetryTypewriter /> },
+    { title: t.services.s2.title, desc: t.services.s2.desc, visual: <ContentPulse /> },
+    { title: t.services.s3.title, desc: t.services.s3.desc, visual: <CursorProtocol /> },
+  ];
+
   return (
-    <section id="services" ref={sectionRef} className="py-24 px-6 relative">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="text-center mb-20 max-w-2xl mx-auto">
-          <span className="eyebrow block mb-4">{t.services.eyebrow}</span>
-          <h2 className="text-4xl md:text-5xl text-ghost-white mb-6">
+    <section id="services" ref={sectionRef} className="relative py-24 md:py-32">
+      <div className="max-w-[1560px] mx-auto px-5 md:px-10 grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-14 lg:gap-20 items-start">
+        {/* Left: sticky intro */}
+        <div className="lg:sticky lg:top-32">
+          <span className="eyebrow block mb-8">{t.services.eyebrow}</span>
+          <h2 className="display-xl text-ghost-white text-[clamp(36px,4.6vw,64px)] mb-6">
             {t.services.title}
           </h2>
-          <p className="font-body text-mist text-[18px] leading-relaxed">
+          <p className="font-body text-ghost-white/70 text-[17px] md:text-[19px] leading-[1.55] max-w-[440px]">
             {t.services.sub}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
-           <div className="cards-glow left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />
-          {/* Card 1 - AI Automation */}
-          <div className="feature-card xtract-card flex flex-col items-center">
-            <div className="w-full h-44 flex items-center justify-center">
-              <TelemetryTypewriter />
-            </div>
-            <div className="mt-12 text-center">
-              <h3 className="text-[22px] text-ghost-white mb-4">
-                {t.services.s1.title}
+        {/* Right: stacked glass cards */}
+        <div className="flex flex-col gap-6 md:gap-8">
+          {cards.map((card) => (
+            <article key={card.title} className="feature-card glass-panel solution-card">
+              <h3 className="relative z-10 text-ghost-white text-[clamp(26px,3vw,42px)] tracking-[-0.02em] font-[600]">
+                {card.title}
               </h3>
-              <p className="font-body text-mist text-[15px] leading-relaxed">
-                {t.services.s1.desc}
-              </p>
-            </div>
-          </div>
 
-          {/* Card 2 - Growth Marketing */}
-          <div className="feature-card xtract-card flex flex-col items-center">
-            <div className="w-full h-44 flex items-center justify-center">
-              <ContentPulse />
-            </div>
-            <div className="mt-12 text-center">
-              <h3 className="text-[22px] text-ghost-white mb-4">
-                {t.services.s2.title}
-              </h3>
-              <p className="font-body text-mist text-[15px] leading-relaxed">
-                {t.services.s2.desc}
-              </p>
-            </div>
-          </div>
+              <div className="relative z-10 flex-1 flex items-center justify-center py-4 opacity-90">
+                {card.visual}
+              </div>
 
-          {/* Card 3 - Product & Dev */}
-          <div className="feature-card xtract-card flex flex-col items-center">
-            <div className="w-full h-44 flex items-center justify-center">
-               <CursorProtocol />
-            </div>
-            <div className="mt-12 text-center">
-              <h3 className="text-[22px] text-ghost-white mb-4">
-                {t.services.s3.title}
-              </h3>
-              <p className="font-body text-mist text-[15px] leading-relaxed">
-                {t.services.s3.desc}
+              <p className="relative z-10 font-body text-ghost-white/70 text-[16px] md:text-[17px] leading-[1.6] max-w-[620px]">
+                {card.desc}
               </p>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

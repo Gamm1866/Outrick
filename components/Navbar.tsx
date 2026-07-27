@@ -35,35 +35,27 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header
-      className={`fixed top-0 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 w-[calc(100%-32px)] max-w-[1240px] mt-4 px-4 md:px-8 py-3 ${
-        scrolled ? 'nav-pill nav-pill-scrolled' : ''
-      }`}
-    >
+    <header className="fixed top-0 left-1/2 -translate-x-1/2 z-[100] w-full max-w-[1560px] px-5 md:px-10 py-4 md:py-5">
       <div className="relative flex items-center justify-between pointer-events-auto">
         <Link href="/" className="logo-luxury text-white">
           OUTRICK
         </Link>
 
-        {/* Center: links pill */}
-        <nav className="hidden md:flex nav-links-pill items-center gap-1 absolute left-1/2 -translate-x-1/2">
-          <Link href="/services" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
+        {/* Right: single glass slab with links + CTA (reference header) */}
+        <div className={`hidden md:flex nav-cluster ${scrolled ? 'nav-cluster-scrolled' : ''}`}>
+          <Link href="/services" className="nav-cluster-link focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
             {t.nav.services}
           </Link>
-          <a href="/#process" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
+          <a href="/#process" className="nav-cluster-link focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
             {t.nav.process}
           </a>
-          <Link href="/blog" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
+          <Link href="/blog" className="nav-cluster-link focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
             {t.nav.blog}
           </Link>
-        </nav>
-
-        {/* Right: language + primary CTA */}
-        <div className="hidden md:flex items-center gap-4">
-          <LanguageToggle />
-          <Link href="/score" className="magnetic-btn btn-pill-light whitespace-nowrap">
+          <span className="px-2"><LanguageToggle /></span>
+          <Link href="/score" className="btn-cluster-cta">
             {t.nav.contact}
-            <span className="btn-pill-light-arrow">
+            <span className="btn-cluster-arrow">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
             </span>
           </Link>
@@ -71,7 +63,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-ghost-white p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded flex items-center justify-center pointer-events-auto"
+          className="md:hidden nav-cluster text-ghost-white p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded flex items-center justify-center pointer-events-auto"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
           aria-label="Toggle menu"
@@ -88,7 +80,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-[120%] left-0 w-full bg-[#09090F]/60 backdrop-blur-md border border-white/5 rounded-2xl p-6 flex flex-col gap-6 md:hidden shadow-2xl z-50">
+        <div className="absolute top-[110%] left-5 right-5 bg-[#09090F]/80 backdrop-blur-xl border border-white/8 rounded-2xl p-6 flex flex-col gap-6 md:hidden shadow-2xl z-50">
           <Link onClick={() => setMenuOpen(false)} href="/services" className="text-xl text-ghost-white">{t.nav.services}</Link>
           <a onClick={() => setMenuOpen(false)} href="/#process" className="text-xl text-ghost-white">{t.nav.process}</a>
           <Link onClick={() => setMenuOpen(false)} href="/blog" className="text-xl text-ghost-white">{t.nav.blog}</Link>
