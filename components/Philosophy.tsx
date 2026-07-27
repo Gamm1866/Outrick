@@ -93,11 +93,9 @@ export default function Philosophy() {
     <section 
       ref={sectionRef} 
       className="relative py-[140px] overflow-hidden flex items-center justify-center"
-      style={{ background: 'rgba(5, 5, 10, 0.5)' }}
     >
       {/* Background Layers */}
       <div className="absolute inset-0 z-0">
-        <div className="philosophy-grid" />
         <div className="philosophy-scanline" />
         <div className="philosophy-glow" />
         {dots.map((dot, i) => (

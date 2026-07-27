@@ -6,23 +6,24 @@ export default function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="flex gap-1 items-center text-[13px] font-body bg-white/5 p-1 rounded-full border border-white/5">
+    <div className="flex gap-2 items-center text-[13px] font-body tracking-wide">
       <button
         type="button"
         onClick={() => setLanguage('es')}
-        className={`px-3 py-1.5 rounded-full transition-all duration-300 ${
-          language === 'es' ? 'bg-plasma-purple text-white font-semibold' : 'text-[#7A7F8E] hover:text-ghost-white'
+        className={`transition-colors duration-300 ${
+          language === 'es' ? 'text-ghost-white font-semibold' : 'text-mist hover:text-ghost-white'
         }`}
         aria-label="Switch to Spanish"
         aria-pressed={language === 'es'}
       >
         ES
       </button>
+      <span className="text-white/20" aria-hidden="true">/</span>
       <button
         type="button"
         onClick={() => setLanguage('en')}
-        className={`px-3 py-1.5 rounded-full transition-all duration-300 ${
-          language === 'en' ? 'bg-plasma-purple text-white font-semibold' : 'text-[#7A7F8E] hover:text-ghost-white'
+        className={`transition-colors duration-300 ${
+          language === 'en' ? 'text-ghost-white font-semibold' : 'text-mist hover:text-ghost-white'
         }`}
         aria-label="Switch to English"
         aria-pressed={language === 'en'}

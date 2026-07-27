@@ -36,7 +36,7 @@ export default function SocialProof() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 border-y border-white/5 overflow-hidden relative">
+    <section ref={sectionRef} className="py-24 px-6 overflow-hidden relative">
       <div className="max-w-6xl mx-auto mb-20 text-center">
         <span className="eyebrow block mb-4">{t.proof.eyebrow}</span>
         <h2 className="text-4xl md:text-5xl text-ghost-white mb-6">

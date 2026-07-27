@@ -8,37 +8,14 @@ export default function PhoneButton() {
       href="tel:+19045904962"
       aria-label="Llamar a Alex · Call Alex"
       title="Llamar a Alex · Call Alex"
-      style={{
-        position: 'fixed',
-        bottom: '96px',
-        right: '28px',
-        zIndex: 90,
-        width: '56px',
-        height: '56px',
-        borderRadius: '9999px',
-        background: '#7B61FF',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        boxShadow: '0 8px 30px rgba(123, 97, 255, 0.5)',
-        transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-        textDecoration: 'none',
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'scale(1.1)'
-        e.currentTarget.style.boxShadow = '0 12px 40px rgba(123, 97, 255, 0.65)'
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'scale(1)'
-        e.currentTarget.style.boxShadow = '0 8px 30px rgba(123, 97, 255, 0.5)'
-      }}
+      className="floating-action fixed bottom-[96px] right-7 z-[90]"
     >
       <svg
-        width="24"
-        height="24"
+        width="22"
+        height="22"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="white"
+        stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

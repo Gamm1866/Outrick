@@ -54,40 +54,46 @@
   main {
     position: relative;
   }
-  main::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-      radial-gradient(ellipse 700px 500px at 15% 65%, rgba(76, 124, 255, 0.05) 0%, transparent 70%),
-      radial-gradient(ellipse 600px 400px at 85% 90%, rgba(60, 90, 230, 0.04) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  main > section {
+  main > section,
+  main > footer,
+  main > div {
     position: relative;
     z-index: 1;
+  }
+  main > section {
     background: transparent !important;
   }
 }
 
 @layer utilities {
   /* ── Volumetric veil backdrop (hero + services) ───────────────────── */
+  /* Fixed so the backdrop stays continuous across every section, like the reference */
   .veil {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 190vh;
+    position: fixed;
+    inset: 0;
     overflow: hidden;
     pointer-events: none;
     z-index: 0;
     background: #030209;
-    mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
-    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 62%, transparent 100%);
+  }
+
+  .veil-stage {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Parallax: the whole stage drifts as the page scrolls. Browsers without
+     scroll-driven animations keep the time-based drift on the layers below. */
+  @supports (animation-timeline: scroll()) {
+    .veil-stage {
+      animation: veilScroll linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+
+  @keyframes veilScroll {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to { transform: translate3d(-6%, -14%, 0) scale(1.35); }
   }
 
   .veil-layer {
@@ -156,8 +162,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 120% 90% at 50% 40%, transparent 30%, rgba(3, 2, 9, 0.55) 78%, #030209 100%),
-      linear-gradient(180deg, rgba(3, 2, 9, 0.55) 0%, transparent 22%, transparent 55%, rgba(3, 2, 9, 0.85) 100%);
+      radial-gradient(ellipse 130% 100% at 50% 45%, transparent 35%, rgba(3, 2, 9, 0.45) 80%, rgba(3, 2, 9, 0.8) 100%),
+      linear-gradient(180deg, rgba(3, 2, 9, 0.4) 0%, transparent 25%, transparent 70%, rgba(3, 2, 9, 0.5) 100%);
   }
 
   @keyframes veilDriftA {
@@ -224,6 +230,31 @@
       min-height: 0;
       padding: 28px;
     }
+  }
+
+  /* Floating contact buttons: glass, no brand-clashing solid fills */
+  .floating-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    color: var(--color-ghost-white);
+    background: rgba(12, 14, 30, 0.6);
+    backdrop-filter: blur(24px) saturate(1.5);
+    -webkit-backdrop-filter: blur(24px) saturate(1.5);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10), 0 12px 34px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .floating-action:hover {
+    color: #FFFFFF;
+    border-color: rgba(127, 166, 255, 0.4);
+    background: rgba(76, 124, 255, 0.22);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55), 0 0 40px rgba(76, 124, 255, 0.25);
   }
 
   .display-xl {
@@ -649,6 +680,18 @@
     border: 1px solid rgba(255, 255, 255, 0.07);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 10px 40px rgba(0, 0, 0, 0.45);
     transition: background 0.5s ease, border-color 0.5s ease;
+  }
+
+  .nav-mobile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 14px;
+    background: rgba(12, 14, 30, 0.6);
+    backdrop-filter: blur(30px) saturate(1.5);
+    -webkit-backdrop-filter: blur(30px) saturate(1.5);
+    border: 1px solid rgba(255, 255, 255, 0.07);
   }
 
   .nav-cluster-scrolled {

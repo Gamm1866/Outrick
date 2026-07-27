@@ -41,8 +41,10 @@ export default function Navbar() {
           OUTRICK
         </Link>
 
-        {/* Right: single glass slab with links + CTA (reference header) */}
-        <div className={`hidden md:flex nav-cluster ${scrolled ? 'nav-cluster-scrolled' : ''}`}>
+        {/* Right: language switch + single glass slab with links and CTA */}
+        <div className="hidden md:flex items-center gap-6">
+          <LanguageToggle />
+          <div className={`nav-cluster ${scrolled ? 'nav-cluster-scrolled' : ''}`}>
           <Link href="/services" className="nav-cluster-link focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
             {t.nav.services}
           </Link>
@@ -52,18 +54,18 @@ export default function Navbar() {
           <Link href="/blog" className="nav-cluster-link focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
             {t.nav.blog}
           </Link>
-          <span className="px-2"><LanguageToggle /></span>
           <Link href="/score" className="btn-cluster-cta">
             {t.nav.contact}
             <span className="btn-cluster-arrow">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
             </span>
           </Link>
+          </div>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden nav-cluster text-ghost-white p-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void rounded flex items-center justify-center pointer-events-auto"
+          className="md:hidden nav-mobile-btn text-ghost-white focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple focus-visible:ring-offset-2 focus-visible:ring-offset-deep-void pointer-events-auto"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-expanded={menuOpen}
           aria-label="Toggle menu"
