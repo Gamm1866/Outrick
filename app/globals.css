@@ -501,6 +501,45 @@
     background: rgba(76, 124, 255, 0.18);
   }
 
+  /* White CTA pill with circular arrow (reference header) */
+  .btn-pill-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #FFFFFF;
+    color: #0A0B22 !important;
+    border-radius: 100px;
+    padding: 6px 6px 6px 20px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+  }
+
+  .btn-pill-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(76, 124, 255, 0.35);
+  }
+
+  .btn-pill-light-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(10, 11, 34, 0.12);
+    color: #0A0B22;
+    transition: background 0.3s ease;
+  }
+
+  .btn-pill-light:hover .btn-pill-light-arrow {
+    background: var(--color-plasma-purple);
+    color: #FFFFFF;
+  }
+
   .hero-gradient {
     background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(76, 124, 255, 0.12) 0%, rgba(40, 60, 200, 0.06) 40%, #03021B 70%);
   }

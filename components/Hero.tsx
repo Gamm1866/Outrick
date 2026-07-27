@@ -62,19 +62,19 @@ export default function Hero() {
             {t.hero.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+          <div className="flex flex-row items-center gap-3 sm:gap-4">
             <Link
               href="/score"
-              className="magnetic-btn btn-pill-primary px-8 py-4 w-full sm:w-auto"
+              className="magnetic-btn btn-pill-primary px-7 py-3.5 whitespace-nowrap"
             >
               <span className="flex items-center justify-center gap-2">
-                {t.hero.cta.replace(' ↗', '')}
+                {t.hero.cta}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
               </span>
             </Link>
             <a
               href="#services"
-              className="magnetic-btn btn-pill-secondary px-8 py-4 w-full sm:w-auto"
+              className="magnetic-btn btn-pill-secondary px-7 py-3.5 whitespace-nowrap"
             >
               {t.hero.cta2}
             </a>

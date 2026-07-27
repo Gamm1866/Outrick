@@ -36,36 +36,38 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 w-[calc(100%-32px)] max-w-[900px] mt-4 px-7 py-3 nav-pill ${
-        scrolled ? 'nav-pill-scrolled' : ''
+      className={`fixed top-0 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 w-[calc(100%-32px)] max-w-[1240px] mt-4 px-4 md:px-8 py-3 ${
+        scrolled ? 'nav-pill nav-pill-scrolled' : ''
       }`}
     >
-      <div className="flex items-center justify-between pointer-events-auto">
+      <div className="relative flex items-center justify-between pointer-events-auto">
         <Link href="/" className="logo-luxury text-white">
           OUTRICK
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-5">
-          <div className="nav-links-pill flex items-center gap-1">
-            <Link href="/services" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
-              {t.nav.services}
-            </Link>
-            <a href="/#process" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
-              {t.nav.process}
-            </a>
-            <Link href="/blog" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
-              {t.nav.blog}
-            </Link>
-          </div>
-          <LanguageToggle />
-          <Link href="/score" className="magnetic-btn btn-pill-primary pl-6 pr-2 py-2 text-[15px] inline-flex items-center gap-3">
-            {t.nav.contact}
-            <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/20">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
-            </span>
+        {/* Center: links pill */}
+        <nav className="hidden md:flex nav-links-pill items-center gap-1 absolute left-1/2 -translate-x-1/2">
+          <Link href="/services" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
+            {t.nav.services}
+          </Link>
+          <a href="/#process" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
+            {t.nav.process}
+          </a>
+          <Link href="/blog" className="nav-link-item focus:outline-none focus-visible:ring-2 focus-visible:ring-plasma-purple">
+            {t.nav.blog}
           </Link>
         </nav>
+
+        {/* Right: language + primary CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          <LanguageToggle />
+          <Link href="/score" className="magnetic-btn btn-pill-light whitespace-nowrap">
+            {t.nav.contact}
+            <span className="btn-pill-light-arrow">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+            </span>
+          </Link>
+        </div>
 
         {/* Mobile Toggle */}
         <button
