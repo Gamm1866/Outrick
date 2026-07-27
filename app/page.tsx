@@ -19,13 +19,14 @@ export default function Home() {
       <Hero />
       <PainPoints />
       <Features />
-      <div className="section-divider" />
-      <Philosophy />
-      <div className="section-divider" />
-      <Process />
-      <div className="section-divider" />
-      <SocialProof />
-      <div className="section-divider" />
+
+      {/* Act 2: light block, mirrors the reference's cream mid-section */}
+      <div id="act-light" className="act-light">
+        <Philosophy />
+        <Process />
+        <SocialProof />
+      </div>
+
       <ScoreForm />
       <Footer />
       <PhoneButton />

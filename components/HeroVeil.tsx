@@ -10,8 +10,8 @@ export default function HeroVeil() {
         <div className="veil-layer veil-layer-a" />
         <div className="veil-layer veil-layer-b" />
         <div className="veil-ripples" />
+        <div className="veil-slats" />
       </div>
-      <div className="veil-slats" />
       <div className="veil-grain" />
       <div className="veil-vignette" />
     </div>

@@ -5,9 +5,13 @@ import Link from 'next/link';
 import { useLanguage } from '@/hooks/useLanguage';
 import LanguageToggle from './LanguageToggle';
 
+// Vertical centre of the fixed header, used to test what it currently sits over
+const NAV_HEIGHT = 56;
+
 export default function Navbar() {
   const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
+  const [onLight, setOnLight] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -16,6 +20,24 @@ export default function Navbar() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Invert the header while it overlaps the light act
+  useEffect(() => {
+    const light = document.getElementById('act-light');
+    if (!light) return;
+
+    const check = () => {
+      const { top, bottom } = light.getBoundingClientRect();
+      setOnLight(top <= NAV_HEIGHT && bottom >= NAV_HEIGHT);
+    };
+    check();
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check);
+    return () => {
+      window.removeEventListener('scroll', check);
+      window.removeEventListener('resize', check);
+    };
   }, []);
 
   useEffect(() => {
@@ -35,7 +57,7 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <header className="fixed top-0 left-1/2 -translate-x-1/2 z-[100] w-full max-w-[1560px] px-5 md:px-10 py-4 md:py-5">
+    <header className={`fixed top-0 left-1/2 -translate-x-1/2 z-[100] w-full max-w-[1560px] px-5 md:px-10 py-4 md:py-5 ${onLight ? 'nav-on-light' : ''}`}>
       <div className="relative flex items-center justify-between pointer-events-auto">
         <Link href="/" className="logo-luxury text-white">
           OUTRICK

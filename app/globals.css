@@ -103,51 +103,56 @@
     will-change: transform;
   }
 
+  /* Broad diffuse glow that decides which folds catch the light */
   .veil-layer-a {
     background:
-      radial-gradient(52% 34% at 44% 34%, rgba(150, 185, 255, 0.62) 0%, rgba(64, 96, 226, 0.30) 46%, transparent 74%),
-      radial-gradient(40% 22% at 63% 55%, rgba(186, 210, 255, 0.45) 0%, transparent 72%);
+      radial-gradient(46% 30% at 46% 30%, rgba(176, 205, 255, 0.75) 0%, rgba(70, 108, 235, 0.32) 48%, transparent 76%),
+      radial-gradient(34% 20% at 66% 58%, rgba(200, 222, 255, 0.5) 0%, transparent 72%);
+    filter: blur(60px);
     transform: rotate(-13deg);
     animation: veilDriftA 34s ease-in-out infinite;
   }
 
   .veil-layer-b {
     background:
-      radial-gradient(60% 40% at 30% 62%, rgba(45, 72, 190, 0.55) 0%, transparent 70%),
-      radial-gradient(34% 46% at 70% 22%, rgba(26, 40, 120, 0.5) 0%, transparent 72%);
+      radial-gradient(58% 38% at 28% 66%, rgba(38, 62, 176, 0.6) 0%, transparent 70%),
+      radial-gradient(32% 44% at 72% 18%, rgba(20, 32, 104, 0.55) 0%, transparent 72%);
     transform: rotate(9deg);
     animation: veilDriftB 46s ease-in-out infinite;
     mix-blend-mode: screen;
   }
 
-  /* Concentric folds of the "curtain" */
+  /* The folds themselves: sweeping arcs of light across the fabric */
   .veil-ripples {
     position: absolute;
     inset: -20%;
     background: repeating-radial-gradient(
-      ellipse 88% 58% at 34% 108%,
-      rgba(146, 182, 255, 0.16) 0px,
-      rgba(146, 182, 255, 0.16) 46px,
-      rgba(3, 2, 9, 0.34) 46px,
-      rgba(3, 2, 9, 0.34) 138px
+      ellipse 92% 62% at 30% 112%,
+      rgba(168, 200, 255, 0.42) 0px,
+      rgba(168, 200, 255, 0.42) 34px,
+      rgba(96, 138, 228, 0.16) 62px,
+      rgba(4, 6, 20, 0.72) 104px,
+      rgba(4, 6, 20, 0.78) 168px
     );
-    filter: blur(26px);
-    opacity: 0.85;
+    filter: blur(14px);
+    mix-blend-mode: screen;
     animation: veilRipple 40s ease-in-out infinite;
   }
 
-  /* Vertical fabric slats */
+  /* Vertical pleats: a bright edge and a shadow per slat, like real fabric */
   .veil-slats {
     position: absolute;
     inset: 0;
     background: repeating-linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.42) 0px,
-      rgba(0, 0, 0, 0.42) 2px,
-      rgba(0, 0, 0, 0) 2px,
-      rgba(0, 0, 0, 0) 26px
+      rgba(0, 0, 0, 0.55) 0px,
+      rgba(0, 0, 0, 0.28) 3px,
+      rgba(255, 255, 255, 0.07) 8px,
+      rgba(255, 255, 255, 0.10) 9px,
+      rgba(0, 0, 0, 0.22) 14px,
+      rgba(0, 0, 0, 0.55) 18px
     );
-    opacity: 0.55;
+    opacity: 0.8;
   }
 
   .veil-grain {
@@ -230,6 +235,140 @@
       min-height: 0;
       padding: 28px;
     }
+  }
+
+  /* ── Act 2: the light block (reference has a cream mid-section) ─────
+     One wrapper restyles its sections by descent, so the components
+     themselves stay untouched. */
+  .act-light {
+    position: relative;
+    z-index: 1;
+    background: #F2F1ED;
+    color: #0A0B12;
+    border-radius: 40px;
+    margin: 0 12px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 767px) {
+    .act-light {
+      border-radius: 24px;
+      margin: 0 6px;
+    }
+  }
+
+  .act-light section {
+    background: transparent !important;
+  }
+
+  /* Text */
+  .act-light h2,
+  .act-light h3,
+  .act-light .text-ghost-white {
+    color: #0A0B12 !important;
+  }
+
+  .act-light p,
+  .act-light .text-mist,
+  .act-light .text-ash,
+  .act-light .text-\[\#7A7F8E\] {
+    color: #4A4C57 !important;
+  }
+
+  .act-light .eyebrow {
+    color: #6B6E7B !important;
+  }
+
+  .act-light .text-plasma-purple,
+  .act-light .text-plasma-light {
+    color: #2D51C7 !important;
+  }
+
+  /* Cards flip to the cream-on-cream treatment */
+  .act-light .xtract-card {
+    background: #E7E6E0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-color: rgba(10, 11, 18, 0.08);
+    box-shadow: none;
+  }
+
+  .act-light .xtract-card::before {
+    display: none;
+  }
+
+  .act-light .xtract-card:hover {
+    background: #E1E0D9;
+    border-color: rgba(10, 11, 18, 0.16);
+    box-shadow: 0 14px 34px rgba(10, 11, 18, 0.10);
+  }
+
+  /* Buttons invert: black pill on cream */
+  .act-light .btn-pill-primary {
+    background: #0A0B12;
+    box-shadow: none;
+  }
+
+  .act-light .btn-pill-primary:hover {
+    background: #1B1D2B;
+    box-shadow: 0 8px 24px rgba(10, 11, 18, 0.25);
+  }
+
+  /* Dark-only decoration has no place here */
+  .act-light .philosophy-scanline,
+  .act-light .philosophy-glow,
+  .act-light .philosophy-dot,
+  .act-light .cards-glow,
+  .act-light .timeline-pulse,
+  .act-light .timeline-pulse-v,
+  .act-light .section-divider {
+    display: none !important;
+  }
+
+  .act-light .border-white\/5,
+  .act-light .border-white\/10 {
+    border-color: rgba(10, 11, 18, 0.10) !important;
+  }
+
+  .act-light .bg-white\/5 {
+    background: rgba(10, 11, 18, 0.04) !important;
+  }
+
+  /* Header adapts when it sits over the light block */
+  .nav-on-light .logo-luxury {
+    color: #0A0B12;
+  }
+
+  .nav-on-light .nav-cluster {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(10, 11, 18, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 10px 30px rgba(10, 11, 18, 0.10);
+  }
+
+  .nav-on-light .nav-cluster-link {
+    color: #0A0B12;
+  }
+
+  .nav-on-light .nav-cluster-link:hover {
+    background: rgba(10, 11, 18, 0.06);
+  }
+
+  .nav-on-light .nav-mobile-btn {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(10, 11, 18, 0.08);
+    color: #0A0B12;
+  }
+
+  .nav-on-light .text-mist {
+    color: #6B6E7B !important;
+  }
+
+  .nav-on-light .text-ghost-white {
+    color: #0A0B12 !important;
+  }
+
+  .logo-luxury {
+    transition: opacity 0.3s ease, color 0.4s ease;
   }
 
   /* Floating contact buttons: glass, no brand-clashing solid fills */
