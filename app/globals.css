@@ -103,56 +103,51 @@
     will-change: transform;
   }
 
-  /* Broad diffuse glow that decides which folds catch the light */
   .veil-layer-a {
     background:
-      radial-gradient(46% 30% at 46% 30%, rgba(176, 205, 255, 0.75) 0%, rgba(70, 108, 235, 0.32) 48%, transparent 76%),
-      radial-gradient(34% 20% at 66% 58%, rgba(200, 222, 255, 0.5) 0%, transparent 72%);
-    filter: blur(60px);
+      radial-gradient(52% 34% at 44% 34%, rgba(150, 185, 255, 0.62) 0%, rgba(64, 96, 226, 0.30) 46%, transparent 74%),
+      radial-gradient(40% 22% at 63% 55%, rgba(186, 210, 255, 0.45) 0%, transparent 72%);
     transform: rotate(-13deg);
     animation: veilDriftA 34s ease-in-out infinite;
   }
 
   .veil-layer-b {
     background:
-      radial-gradient(58% 38% at 28% 66%, rgba(38, 62, 176, 0.6) 0%, transparent 70%),
-      radial-gradient(32% 44% at 72% 18%, rgba(20, 32, 104, 0.55) 0%, transparent 72%);
+      radial-gradient(60% 40% at 30% 62%, rgba(45, 72, 190, 0.55) 0%, transparent 70%),
+      radial-gradient(34% 46% at 70% 22%, rgba(26, 40, 120, 0.5) 0%, transparent 72%);
     transform: rotate(9deg);
     animation: veilDriftB 46s ease-in-out infinite;
     mix-blend-mode: screen;
   }
 
-  /* The folds themselves: sweeping arcs of light across the fabric */
+  /* Concentric folds of the "curtain" */
   .veil-ripples {
     position: absolute;
     inset: -20%;
     background: repeating-radial-gradient(
-      ellipse 92% 62% at 30% 112%,
-      rgba(168, 200, 255, 0.42) 0px,
-      rgba(168, 200, 255, 0.42) 34px,
-      rgba(96, 138, 228, 0.16) 62px,
-      rgba(4, 6, 20, 0.72) 104px,
-      rgba(4, 6, 20, 0.78) 168px
+      ellipse 88% 58% at 34% 108%,
+      rgba(146, 182, 255, 0.16) 0px,
+      rgba(146, 182, 255, 0.16) 46px,
+      rgba(3, 2, 9, 0.34) 46px,
+      rgba(3, 2, 9, 0.34) 138px
     );
-    filter: blur(14px);
-    mix-blend-mode: screen;
+    filter: blur(26px);
+    opacity: 0.85;
     animation: veilRipple 40s ease-in-out infinite;
   }
 
-  /* Vertical pleats: a bright edge and a shadow per slat, like real fabric */
+  /* Vertical fabric slats */
   .veil-slats {
     position: absolute;
     inset: 0;
     background: repeating-linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.55) 0px,
-      rgba(0, 0, 0, 0.28) 3px,
-      rgba(255, 255, 255, 0.07) 8px,
-      rgba(255, 255, 255, 0.10) 9px,
-      rgba(0, 0, 0, 0.22) 14px,
-      rgba(0, 0, 0, 0.55) 18px
+      rgba(0, 0, 0, 0.42) 0px,
+      rgba(0, 0, 0, 0.42) 2px,
+      rgba(0, 0, 0, 0) 2px,
+      rgba(0, 0, 0, 0) 26px
     );
-    opacity: 0.8;
+    opacity: 0.55;
   }
 
   .veil-grain {
